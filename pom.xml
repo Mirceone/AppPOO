@@ -14,21 +14,12 @@
         <junit.version>5.9.2</junit.version>
     </properties>
 
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.hibernate.orm</groupId>
-                <artifactId>hibernate-platform</artifactId>
-                <version>6.5.1.Final</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-
     <dependencies>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.4.0</version>
+        </dependency>
         <dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
@@ -38,10 +29,7 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.5.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.transaction</groupId>
-            <artifactId>jakarta.transaction-api</artifactId>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>

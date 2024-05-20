@@ -2,12 +2,15 @@ package com.example.javafxapp.service;
 
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.example.javafxapp.dao.UserDao;
 import com.example.javafxapp.model.User;
 
 public class UserService {
+
+    private EntityManagerFactory emf;
     private UserDao userDao;
 
     public UserService() {
@@ -17,6 +20,7 @@ public class UserService {
             System.out.println(ex);
         }
     }
+
 
     public void addUser(User newUser) {
         userDao.create(newUser);
@@ -43,4 +47,5 @@ public class UserService {
         }
         return u;
     }
+
 }

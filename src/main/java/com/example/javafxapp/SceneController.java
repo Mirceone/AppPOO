@@ -33,7 +33,7 @@ public class SceneController {
     }
 
     public void switchToMainPage(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("mainAppPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);

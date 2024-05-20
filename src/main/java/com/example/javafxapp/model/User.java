@@ -2,9 +2,6 @@ package com.example.javafxapp.model;
 
 import jakarta.persistence.*;
 
-// ... (JPA annotations and fields representing the 'users' table columns)
-
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -19,7 +16,7 @@ public class User {
     private String password;
 
     // No-argument constructor (required by JPA)
-    protected User() {
+    public User() {
     }
 
     // Constructor with parameters
@@ -41,7 +38,6 @@ public class User {
     }
 
     // ... Setters
-
     public void setId(int id) {
         this.id = id;
     }
