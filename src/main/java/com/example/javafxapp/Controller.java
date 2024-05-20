@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class Controller {
@@ -29,13 +30,17 @@ public class Controller {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        UserService userService = new UserService();
-        User user = userService.login(username, password);
-        if (user != null) {
-            // Successful login, navigate to the main application screen
-        } else {
-            // Invalid credentials, show an error message
+        if(Objects.equals(username, password)){
+            welcomeText.setText("Welcome " + username);
         }
+
+//        UserService userService = new UserService();
+//        User user = userService.login(username, password);
+//        if (user != null) {
+//            // Successful login, navigate to the main application screen
+//        } else {
+//            // Invalid credentials, show an error message
+//        }
     }
 
     @FXML
