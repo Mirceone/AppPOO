@@ -1,4 +1,5 @@
 package com.example.javafxapp;
+import com.example.javafxapp.model.User;
 import jakarta.persistence.*;
 
 // ... (JPA annotations and fields representing the 'tasks' table columns)
@@ -54,5 +55,17 @@ public class Tasks {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    //
+
+    @Override
+    public String toString() {
+        return "Tasks{" +
+                "id=" + id +
+                ", user=" + user +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

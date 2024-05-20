@@ -6,6 +6,7 @@ import com.example.javafxapp.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -17,13 +18,30 @@ public class Controller {
     private SceneController sceneController = new SceneController();
 
     @FXML
+    private Label registerText;
+
+    @FXML
     private TextField usernameField;
 
     @FXML
     private TextField passwordField;
 
     @FXML
+    private TextField confirmPasswordField;
+
+    @FXML
     private Label welcomeText;
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private DatePicker birthdayField;
+
+    @FXML
+    private TextField addressField;
+
+
 
     @FXML
     private void onLoginButtonClick(ActionEvent event) {
@@ -34,13 +52,6 @@ public class Controller {
             welcomeText.setText("Welcome " + username);
         }
 
-//        UserService userService = new UserService();
-//        User user = userService.login(username, password);
-//        if (user != null) {
-//            // Successful login, navigate to the main application screen
-//        } else {
-//            // Invalid credentials, show an error message
-//        }
     }
 
     @FXML
@@ -51,6 +62,14 @@ public class Controller {
     @FXML
     public void onBackButtonClick(ActionEvent event) throws IOException{
         sceneController.switchToLogin(event);
+    }
+
+    public void onRegisterButtonClick1(ActionEvent event) throws IOException {
+        String password = passwordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
+        if(Objects.equals(password, confirmPassword)){
+            welcomeText.setText("Welcome " + usernameField.getText());
+        }
     }
 }
 

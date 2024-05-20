@@ -22,7 +22,10 @@
     <TextField fx:id="usernameField" promptText="Username" maxWidth="350"/>
     <PasswordField fx:id="passwordField" promptText="Password" maxWidth="350"/>
     <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" maxWidth="350"/>
-    <Button onAction="#onRegisterButtonClick" text="Register" />
+    <TextField fx:id="emailField" promptText="Email" maxWidth="350"/>
+    <DatePicker fx:id="birthdayField" promptText="Birthday" maxWidth="350"/>
+    <TextField fx:id="addressField" promptText="Address" maxWidth="350"/>
+    <Button onAction="#onRegisterButtonClick1" text="Register1" />
     <Button onAction="#onBackButtonClick" text="Back" />
 
 </VBox>

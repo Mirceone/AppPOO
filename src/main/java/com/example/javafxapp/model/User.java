@@ -1,4 +1,4 @@
-package com.example.javafxapp;
+package com.example.javafxapp.model;
 
 import jakarta.persistence.*;
 
@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-    // ... (attributes like id, name, email, etc.)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -19,7 +18,16 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // ... (constructors, getters, setters, etc.)
+    // No-argument constructor (required by JPA)
+    protected User() {
+    }
+
+    // Constructor with parameters
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    // ... Getters
     public int getId() {
         return id;
     }
@@ -32,7 +40,8 @@ public class User {
         return password;
     }
 
-    // Setters
+    // ... Setters
+
     public void setId(int id) {
         this.id = id;
     }
@@ -45,4 +54,5 @@ public class User {
         this.password = password;
     }
 }
+
 

@@ -1,36 +1,30 @@
 package com.example.javafxapp.controller;
-import com.example.javafxapp.User;
+
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import com.example.javafxapp.model.User;
 import com.example.javafxapp.service.UserService;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-
-
-// ... (Assume @FXML annotations for UI elements)
-
 public class UserController {
-    private UserService userService;
-
-    // ... Constructor injection (or other DI mechanism)
+    @FXML
+    public ListView<User> userListView;
 
     @FXML
-    private TextField usernameField;
-    @FXML
-    private TextField passwordField;
+    void initialize() {
+        UserService userService = new UserService();
+        List<User> allUsers = userService.getAllUsers();
 
-    @FXML
-    private void onLoginButtonClick(ActionEvent event) {
+        System.out.println(allUsers);
+        userListView.setItems(FXCollections.observableArrayList(new ArrayList<User>(allUsers)));
 
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        User user = userService.login(username, password);
-        if (user != null) {
-            // Successful login, navigate to the main application screen
-        } else {
-            // Invalid credentials, show an error message
+        // test login
+        try {
+            System.out.println(userService.findUser("test", "1234").toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
-
