@@ -13,6 +13,7 @@ public class Application extends javafx.application.Application {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         Scene scene = new Scene(fxmlLoader);
         stage.setScene(scene);
+        stage.setTitle("Login");
         stage.show();
     }
 

@@ -18,7 +18,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label fx:id="Register" />
+    <Label fx:id="Register" text="Welcome new user" />
     <TextField fx:id="usernameField" promptText="Username" maxWidth="350"/>
     <PasswordField fx:id="passwordField" promptText="Password" maxWidth="350"/>
     <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" maxWidth="350"/>

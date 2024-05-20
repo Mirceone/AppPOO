@@ -19,18 +19,25 @@ public class SceneController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
+        stage.setTitle("Register");
         stage.show();
 
     }
     public void switchToLogin(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
+        stage.setTitle("Login");
         stage.show();
     }
 
     public void switchToMainPage(ActionEvent event) throws IOException {
-
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader);
+        stage.setScene(scene);
+        stage.setTitle("Main page");
+        stage.show();
     }
 }
