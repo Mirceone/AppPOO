@@ -1,12 +1,13 @@
 package com.example.javafxapp;
 import com.example.javafxapp.model.User;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-// ... (JPA annotations and fields representing the 'tasks' table columns)
 
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "tasks", schema = "todo_app")
 public class Tasks {
     // ... (attributes like id, title, description, dueDate, etc.)
     @Id
@@ -14,7 +15,7 @@ public class Tasks {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id_user")
     private User user;
 
     @Column(nullable = false)
@@ -23,9 +24,34 @@ public class Tasks {
     @Column
     private String description;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "id_user", nullable = false)
+    private User idUser;
+
     // ... (constructors, getters, setters, etc.)
+
+    public Tasks(int id, User user, String title, String description, User idUser) {
+        this.id = id;
+        this.user = user;
+        this.title = title;
+        this.description = description;
+        this.idUser = idUser;
+    }
+
+    public Tasks() {
+    }
+
     public int getId() {
         return id;
+    }
+
+    public User getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 
     public User getUser() {
@@ -56,8 +82,6 @@ public class Tasks {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    //
 
     @Override
     public String toString() {

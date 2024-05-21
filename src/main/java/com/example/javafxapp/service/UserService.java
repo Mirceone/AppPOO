@@ -2,25 +2,23 @@ package com.example.javafxapp.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 import com.example.javafxapp.dao.UserDao;
 import com.example.javafxapp.model.User;
 
 public class UserService {
 
-    private EntityManagerFactory emf;
     private UserDao userDao;
 
     public UserService() {
         try {
             userDao = new UserDao(Persistence.createEntityManagerFactory("JavaFxTest"));
         } catch (Exception ex) {
-            System.out.println(ex);
+            ex.printStackTrace();
         }
     }
-
 
     public void addUser(User newUser) {
         userDao.create(newUser);
@@ -34,7 +32,7 @@ public class UserService {
         return userDao.findAll();
     }
 
-    /// for login
+    // for login
     public User findUser(String user, String pass) throws Exception {
         List<User> users = userDao.find(user);
         if (users.size() == 0) {
@@ -42,10 +40,9 @@ public class UserService {
         }
         User u = users.get(0);
 
-        if (pass.compareTo(u.getPassword()) != 0) {
+        if (!pass.equals(u.getPassword())) { // Use equals instead of compareTo for string comparison
             throw new Exception("Password does not match");
         }
         return u;
     }
-
 }
