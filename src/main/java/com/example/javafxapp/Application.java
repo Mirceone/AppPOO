@@ -28,7 +28,7 @@ public class    Application extends javafx.application.Application {
         // Create an EntityManagerFactory to read the persistence.xml configuration
         System.out.println("testDBConnection");
 //        String url = "jdbc:mysql://localhost:3306/todo_app";
-        String url = "jdbc:mysql://localhost:3306/?user=root";
+        String url = "jdbc:mysql://192.168.1.240:3306/todo_app";
         String user = "root";
         String password = "23260506";
         //aici e problema
