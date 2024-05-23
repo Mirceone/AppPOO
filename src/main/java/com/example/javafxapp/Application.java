@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Application extends javafx.application.Application {
+public class    Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
@@ -28,20 +28,20 @@ public class Application extends javafx.application.Application {
         // Create an EntityManagerFactory to read the persistence.xml configuration
         System.out.println("testDBConnection");
 //        String url = "jdbc:mysql://localhost:3306/todo_app";
-//        String url = "jdbc:mysql://localhost:3306/?user=root";
-//        String user = "root";
-//        String password = "23260506";
+        String url = "jdbc:mysql://localhost:3306/?user=root";
+        String user = "root";
+        String password = "23260506";
         //aici e problema
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JavaFxTest");
-        Map<String, Object> properties = emf.getProperties();
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JavaFxTest");
+//        Map<String, Object> properties = emf.getProperties();
 
         // Retrieve the JDBC URL, username, and password from the EntityManagerFactory properties
-        String url = (String) properties.get("jakarta.persistence.jdbc.url");
-        String user = (String) properties.get("jakarta.persistence.jdbc.user");
-        String password = (String) properties.get("jakarta.persistence.jdbc.password");
-        System.out.println("url: " + url);
-        System.out.println("user: " + user);
-        System.out.println("password: " + password);
+//        String url = (String) properties.get("jakarta.persistence.jdbc.url");
+//        String user = (String) properties.get("jakarta.persistence.jdbc.user");
+//        String password = (String) properties.get("jakarta.persistence.jdbc.password");
+//        System.out.println("url: " + url);
+//        System.out.println("user: " + user);
+//        System.out.println("password: " + password);
 
         // Test the database connection using the retrieved properties
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
