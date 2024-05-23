@@ -27,6 +27,11 @@ public class Application extends javafx.application.Application {
     public static void testDBConnection() {
         // Create an EntityManagerFactory to read the persistence.xml configuration
         System.out.println("testDBConnection");
+//        String url = "jdbc:mysql://localhost:3306/todo_app";
+//        String url = "jdbc:mysql://localhost:3306/?user=root";
+//        String user = "root";
+//        String password = "23260506";
+        //aici e problema
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("JavaFxTest");
         Map<String, Object> properties = emf.getProperties();
 
@@ -48,7 +53,7 @@ public class Application extends javafx.application.Application {
         }
 
         // Close the EntityManagerFactory
-        emf.close();
+//        emf.close();
     }
 
     public static void main(String[] args) {
