@@ -32,8 +32,8 @@ public class    Application extends javafx.application.Application {
         String user = "root";
         String password = "23260506";
         //aici e problema
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JavaFxTest");
-//        Map<String, Object> properties = emf.getProperties();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("JavaFxTest");
+        Map<String, Object> properties = emf.getProperties();
 
         // Retrieve the JDBC URL, username, and password from the EntityManagerFactory properties
 //        String url = (String) properties.get("jakarta.persistence.jdbc.url");
@@ -57,7 +57,7 @@ public class    Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-//        launch();
-        testDBConnection();
+        launch();
+//        testDBConnection();
     }
 }
