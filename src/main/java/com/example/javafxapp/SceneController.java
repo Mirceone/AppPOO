@@ -1,4 +1,4 @@
-package com.example.javafxapp.controller;
+package com.example.javafxapp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

@@ -1,6 +1,5 @@
 package com.example.javafxapp;
 
-import com.example.javafxapp.controller.SceneController;
 import com.example.javafxapp.entity.User;
 import com.example.javafxapp.service.UserService;
 
