@@ -1,8 +1,8 @@
 package com.example.javafxapp.dao;
 
 import java.util.List;
-import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaQuery;
+import  javax.persistence.*;
+import javax.persistence.criteria.CriteriaQuery;
 
 public abstract class GenericDao<T> {
     private Class<T> entityClass;

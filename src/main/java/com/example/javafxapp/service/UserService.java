@@ -1,9 +1,7 @@
 package com.example.javafxapp.service;
 
 import java.util.List;
-
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import  javax.persistence.*;
 
 import com.example.javafxapp.dao.UserDao;
 import com.example.javafxapp.model.User;

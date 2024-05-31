@@ -1,7 +1,7 @@
 package com.example.javafxapp;
 
 import com.example.javafxapp.model.User;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.Instant;
 

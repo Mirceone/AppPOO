@@ -2,7 +2,7 @@ package com.example.javafxapp.model;
 
 import com.example.javafxapp.Tasks;
 import com.example.javafxapp.UserProfile;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

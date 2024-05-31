@@ -1,6 +1,6 @@
 package com.example.javafxapp;
 import com.example.javafxapp.model.User;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
