@@ -1,5 +1,6 @@
 package com.example.javafxapp;
 
+import com.example.javafxapp.SceneController;
 import com.example.javafxapp.entity.User;
 import com.example.javafxapp.service.UserService;
 
@@ -44,14 +45,14 @@ public class Controller {
 
     @FXML
     private void onLoginButtonClick(ActionEvent event) throws Exception {
-//        String username = usernameField.getText();
-//        String password = passwordField.getText();
-//
-//        User user = userService.findUser(username, password);
-//        currentUser = user;
-//
-//        welcomeText.setText("welcome " + user.getUsername() + "!");
-        sceneController.switchToMainPage(event);
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        User user = userService.findUser(username, password);
+        currentUser = user;
+
+        welcomeText.setText("welcome " + user.getUsername() + "!");
+//        sceneController.switchToMainPage(event);
     }
 
     @FXML

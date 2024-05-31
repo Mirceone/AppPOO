@@ -13,5 +13,7 @@ module com.example.javafxapp {
     opens com.example.javafxapp.controller to javafx.fxml;
     opens com.example.javafxapp.entity;
     exports com.example.javafxapp.entity;
+    exports com.example.javafxapp.service;
+    opens com.example.javafxapp.service to javafx.fxml;
 
 }
