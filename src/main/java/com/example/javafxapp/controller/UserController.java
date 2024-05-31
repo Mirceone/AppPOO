@@ -2,10 +2,11 @@ package com.example.javafxapp.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.javafxapp.entity.User;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import com.example.javafxapp.model.User;
 import com.example.javafxapp.service.UserService;
 
 public class UserController {

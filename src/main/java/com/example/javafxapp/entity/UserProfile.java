@@ -1,22 +1,17 @@
-package com.example.javafxapp;
+package com.example.javafxapp.entity;
 
-import com.example.javafxapp.model.User;
 import javax.persistence.*;
-
 import java.time.Instant;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_profile", schema = "todo_app")
 public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user", nullable = false)
+    @Column(name = "id_user_profile", nullable = false)
     private Integer id;
-
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_user", nullable = false)
-    private User users;
 
     @Column(name = "birthday")
     private Instant birthday;
@@ -27,20 +22,15 @@ public class UserProfile {
     @Column(name = "address", length = 45)
     private String address;
 
+    @OneToMany(mappedBy = "idUserProfile")
+    private Set<User> users = new LinkedHashSet<>();
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public User getUsers() {
-        return users;
-    }
-
-    public void setUsers(User users) {
-        this.users = users;
     }
 
     public Instant getBirthday() {
@@ -65,6 +55,14 @@ public class UserProfile {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
 }

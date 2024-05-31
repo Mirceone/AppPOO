@@ -7,10 +7,11 @@ module com.example.javafxapp {
     requires java.persistence;
 
 
-    opens com.example.javafxapp to javafx.fxml;
     exports com.example.javafxapp;
-    exports com.example.javafxapp.model;
-    opens com.example.javafxapp.model to javafx.fxml, org.hibernate.orm.core;
-
+    opens com.example.javafxapp to javafx.fxml;
+    exports com.example.javafxapp.controller;
+    opens com.example.javafxapp.controller to javafx.fxml;
+    opens com.example.javafxapp.entity;
+    exports com.example.javafxapp.entity;
 
 }

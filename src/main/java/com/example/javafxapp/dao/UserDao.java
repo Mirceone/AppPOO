@@ -1,8 +1,9 @@
 package com.example.javafxapp.dao;
 
+import com.example.javafxapp.entity.User;
+
 import java.util.List;
 
-import com.example.javafxapp.model.User;
 import  javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

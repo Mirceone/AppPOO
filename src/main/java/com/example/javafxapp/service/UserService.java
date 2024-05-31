@@ -3,8 +3,8 @@ package com.example.javafxapp.service;
 import java.util.List;
 import  javax.persistence.*;
 
+import com.example.javafxapp.entity.User;
 import com.example.javafxapp.dao.UserDao;
-import com.example.javafxapp.model.User;
 
 public class UserService {
 
