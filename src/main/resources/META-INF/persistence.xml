@@ -11,9 +11,9 @@
         <properties>
             <!-- Database connection properties -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.240:3306/todo_app"/>
-            <property name="javax.persistence.jdbc.user" value="remote-r"/>
-            <property name="javax.persistence.jdbc.password" value="23260506"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/todo_app"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
 
 <!--             Hibernate properties-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

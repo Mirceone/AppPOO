@@ -1,21 +1,17 @@
 package com.example.javafxapp.service;
 
-import java.util.List;
-import  javax.persistence.*;
-
-import com.example.javafxapp.entity.User;
 import com.example.javafxapp.dao.UserDao;
+import com.example.javafxapp.entity.User;
+
+import javax.persistence.EntityManagerFactory;
+import java.util.List;
 
 public class UserService {
 
     private UserDao userDao;
 
-    public UserService() {
-        try {
-            userDao = new UserDao(Persistence.createEntityManagerFactory("JavaFxTest"));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    public UserService(EntityManagerFactory factory) {
+        userDao = new UserDao(factory);
     }
 
     public void addUser(User newUser) {
