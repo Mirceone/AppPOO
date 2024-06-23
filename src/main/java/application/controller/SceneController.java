@@ -15,27 +15,43 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
 
+    // Variables to store dimensions
+    private double previousWidth;
+    private double previousHeight;
+
+    public void onSettingsButtonClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/settingsWindow.fxml"));
+            Parent root = loader.load();
+
+            // Access the controller to set any initial data or configurations
+            SettingsWindowController settingsWindowController = loader.getController();
+            // Example: settingsWindowController.setUsername(SessionManager.getInstance().getCurrentUser().getUsername());
+
+            Stage settingsStage = new Stage();
+            settingsStage.initModality(Modality.APPLICATION_MODAL);
+            settingsStage.setTitle("Settings");
+            settingsStage.setScene(new Scene(root));
+            settingsStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void switchToRegister(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/application/registerPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.setTitle("Register");
-        stage.show();
+        saveSceneDimensions();
+        scene = new Scene(fxmlLoader, previousWidth, previousHeight);
+        setStage(scene, "Register");
     }
 
     public void switchToLogin(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/application/loginPage.fxml"));
-        // Determinam daca este apelat de logout sau back button
-        if (event.getSource() instanceof Node) {
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        } else if (event.getSource() instanceof MenuItem) {
-            stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
-        }
-        scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.setTitle("Login");
-        stage.show();
+        stage = getStageFromEvent(event);
+        saveSceneDimensions();
+        scene = new Scene(fxmlLoader, previousWidth, previousHeight);
+        setStage(scene, "Login");
     }
 
     public void switchToMainPage(ActionEvent event, String username) throws IOException {
@@ -45,18 +61,41 @@ public class SceneController {
         controller.setWelcomeMessage("Welcome " + username + "!");
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("To-Do APP");
-        stage.show();
+        saveSceneDimensions();
+        scene = new Scene(root, previousWidth, previousHeight);
+        setStage(scene, "To-Do APP");
     }
 
     public void showAddTaskWindow() throws IOException {
-            Parent fxmlloader = FXMLLoader.load(getClass().getResource("/application/AddTaskWindow.fxml"));
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Add Task");
-            stage.setScene(new Scene(fxmlloader));
-            stage.showAndWait();
+        Parent fxmlloader = FXMLLoader.load(getClass().getResource("/application/AddTaskWindow.fxml"));
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Add Task");
+        stage.setScene(new Scene(fxmlloader));
+        stage.showAndWait();
+    }
+
+    private Stage getStageFromEvent(ActionEvent event) {
+        if (event.getSource() instanceof Node) {
+            return (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else if (event.getSource() instanceof MenuItem) {
+            return (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        }
+        return null;
+    }
+
+    private void saveSceneDimensions() {
+        if (stage != null) {
+            previousWidth = stage.getWidth();
+            previousHeight = stage.getHeight();
+        }
+    }
+
+    private void setStage(Scene scene, String title) {
+        if (stage != null) {
+            stage.setScene(scene);
+            stage.setTitle(title);
+            stage.show();
+        }
     }
 }

@@ -44,4 +44,22 @@ public class UserDao extends GenericDao<User> {
         List<User> results = query.getResultList();
         return results;
     }
+
+    // verificare username inainte de register
+    public boolean isUsernameTaken(String username) {
+        EntityManager em = getEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> q = cb.createQuery(Long.class);
+
+        Root<User> c = q.from(User.class);
+        q.select(cb.count(c)).where(cb.equal(c.get("username"), username));
+        TypedQuery<Long> query = em.createQuery(q);
+
+        Long count = query.getSingleResult();
+        em.close();
+
+        // daca mai mare de 0 return true, adica user taken
+        return count > 0;
+    }
+
 }

@@ -10,7 +10,7 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="application.controller.AddTaskWindowController"
       alignment="CENTER"
-      prefWidth="400" prefHeight="400" spacing="10" styleClass="vbox" stylesheets="@styles/AddTaskWindow.css">
+      prefWidth="500" prefHeight="400" spacing="20" styleClass="vbox" stylesheets="@styles/AddTaskWindow.css">
 
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>

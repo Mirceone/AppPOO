@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="450.0" spacing="20.0"
+<VBox alignment="CENTER" prefHeight="650.0" prefWidth="500.0" spacing="20.0"
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="application.controller.RegisterPageController" styleClass="vbox" stylesheets="@styles/registerPage.css">
 

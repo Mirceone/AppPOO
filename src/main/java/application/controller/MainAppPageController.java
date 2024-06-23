@@ -2,6 +2,7 @@ package application.controller;
 
 import application.dao.TaskDao;
 import application.entity.Task;
+import application.service.TaskService;
 import application.session.SessionManager;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -17,12 +18,14 @@ import javax.persistence.Persistence;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MainAppPageController {
 
-    private final SceneController sceneController = new SceneController();
+    private SceneController sceneController = new SceneController();
     private TaskDao taskDao;
+    private TaskService taskService;
 
     @FXML
     private Label welcomeText;
@@ -33,6 +36,7 @@ public class MainAppPageController {
     public void initialize() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("JavaFxTest");
         taskDao = new TaskDao(factory);
+        taskService = new TaskService(factory);
 
         refreshTaskList();
     }
@@ -42,13 +46,22 @@ public class MainAppPageController {
     }
 
     public void onLogoutButtonClick(ActionEvent event) throws IOException {
-        // Clear the current user session
-        SessionManager.getInstance().clearCurrentUser();
-        sceneController.switchToLogin(event);
+        // Ask for confirmation before logging out
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Confirm Logout");
+        alert.setContentText("Are you sure you want to log out?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Clear the current user session
+            SessionManager.getInstance().clearCurrentUser();
+            sceneController.switchToLogin(event);
+        }
     }
 
     public void onSettingsButtonClick(ActionEvent event) {
-        // Show settings window (implementation not shown)
+        sceneController.onSettingsButtonClick(event);
     }
 
     public void onAddTaskButtonClick(ActionEvent event) throws IOException {

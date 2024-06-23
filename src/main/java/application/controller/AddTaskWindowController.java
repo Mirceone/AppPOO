@@ -35,18 +35,10 @@ public class AddTaskWindowController {
     @FXML
     private Label addTask;
 
-
-    User user;
-    private Stage dialogStage;
-    private boolean taskAdded;
-    private String newListName;
-    private User loggedInUser;
-
     private TaskService taskService;
     private final SessionManager sessionManager;
 
     public AddTaskWindowController() {
-//        loggedInUser = sessionManager.getCurrentUser();
         this.sessionManager = SessionManager.getInstance();
     }
 
@@ -59,17 +51,6 @@ public class AddTaskWindowController {
         initializeComboBox();
         importanceComboBox.setItems(FXCollections.observableArrayList("High", "Medium", "Low"));
     }
-
-//    private void initializeComboBox() {
-//        if (sessionManager != null && sessionManager.getCurrentUser() != null) {
-//            List<Task> tasks = taskService.getTasksForCurrentUser();
-//            listComboBox.setItems(FXCollections.observableArrayList(tasks));
-////            System.out.println(tasks);
-//        } else {
-//            // Handle the case where sessionManager or getCurrentUser() is null
-//            System.err.println("Session manager or current user is null.");
-//        }
-//    }
 
     private void initializeComboBox() {
         if (sessionManager != null && sessionManager.getCurrentUser() != null) {
@@ -101,13 +82,6 @@ public class AddTaskWindowController {
 
     @FXML
     private void handleAddTask() {
-
-//        Task selectedTask = listComboBox.getSelectionModel().getSelectedItem();
-//        if (selectedTask == null) {
-//            newListName = newListNameField.getText();
-//        } else {
-//            newListName = selectedTask.getTitle();
-//        }
 
         // Retrieve input values
         String listName;

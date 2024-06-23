@@ -33,10 +33,6 @@ public class TaskService {
         }
     }
 
-//    public List<Task> getAllTasksByUser(int userId) {
-//        return taskDao.getAllTasksByUser(userId);
-//    }
-
     public List<Task> getTasksForCurrentUser() {
         if (currentUser != null) {
             return taskDao.getAllTasksByUser(currentUser.getId());

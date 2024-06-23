@@ -20,24 +20,6 @@
     -fx-padding-bottom: 20px;
 }
 
-/* Style for buttons */
-.add-button {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-border-color: #388E3C;
-    -fx-border-width: 1px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-padding: 10px 20px;
-    -fx-cursor: hand;
-}
-
-.add-button:hover {
-    -fx-background-color: #45A049;
-}
-
 /* Style for the MenuBar */
 .menu-bar {
     -fx-background-color: #ffffff;
@@ -45,8 +27,8 @@
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
+    -fx-spacing: 10; /* Adjust spacing between menu items if needed */
 }
-
 .menu-bar .menu {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
