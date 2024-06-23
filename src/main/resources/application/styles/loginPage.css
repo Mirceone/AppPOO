@@ -1,0 +1,52 @@
+/* loginPage.css */
+
+/* Style for the main VBox container */
+.vbox {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #b3b3b3;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+
+/* Style for the welcome label */
+.label-welcome {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding-bottom: 20px;
+}
+
+/* Style for text fields */
+.text-field, .password-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b3b3b3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-pref-width: 300px;
+}
+
+/* Style for buttons */
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: #388E3C;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-pref-width: 150px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #45A049;
+}

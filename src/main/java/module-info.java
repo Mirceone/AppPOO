@@ -7,14 +7,13 @@ module com.example.javafxapp {
     requires java.desktop;
 
 
-    exports com.example.javafxapp;
-    exports com.example.javafxapp.controller;
-    exports com.example.javafxapp.entity;
-    exports com.example.javafxapp.service;
+    exports application;
+    exports application.controller;
+    exports application.entity;
+    exports application.service;
 
-    opens com.example.javafxapp to javafx.fxml;
-    opens com.example.javafxapp.controller to javafx.fxml;
-    opens com.example.javafxapp.service to javafx.fxml;
-    opens com.example.javafxapp.entity;
-
+    opens application to javafx.fxml;
+    opens application.controller to javafx.fxml;
+    opens application.service to javafx.fxml;
+    opens application.entity;
 }

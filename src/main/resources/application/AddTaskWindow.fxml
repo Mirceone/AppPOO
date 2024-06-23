@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controller.AddTaskWindowController"
+      alignment="CENTER"
+      prefWidth="400" prefHeight="400" spacing="10" styleClass="vbox" stylesheets="@styles/AddTaskWindow.css">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="addTask" text="Add Task" styleClass="title-label" />
+
+    <Label text="Select or Create List:" styleClass="label"/>
+    <ComboBox fx:id="listComboBox" promptText="Select or Enter New List" styleClass="combo-box"/>
+
+    <Label text="New List Name:" styleClass="label"/>
+    <TextField fx:id="newListNameField" promptText="Enter New List Name" styleClass="text-field"/>
+
+    <Label text="Task Description:" styleClass="label"/>
+    <TextField fx:id="descriptionField" promptText="Enter Task Description" styleClass="text-field"/>
+
+    <HBox spacing="10">
+        <Label text="Due Date:" styleClass="label"/>
+        <DatePicker fx:id="dueDatePicker" styleClass="date-picker"/>
+    </HBox>
+
+    <Label text="Task Importance:" styleClass="label"/>
+    <ComboBox fx:id="importanceComboBox" promptText="Select Importance" styleClass="combo-box">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="High" />
+                <String fx:value="Medium" />
+                <String fx:value="Low" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button text="Add Task" onAction="#handleAddTask" styleClass="add-button" />
+
+</VBox>
