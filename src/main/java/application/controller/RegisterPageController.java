@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.IOException;
@@ -39,6 +38,11 @@ public class RegisterPageController {
     private DatePicker birthdayField;
     @FXML
     private TextField addressField;
+
+    @FXML
+    public void initialize() {
+        birthdayField.setEditable(false);
+    }
 
     @FXML
     public void onRegisterButtonClick(ActionEvent event) throws IOException {

@@ -22,7 +22,6 @@ public class SettingsWindowController {
     private SessionManager sessionManager;
     private SceneController sceneController = new SceneController();
 
-
     @FXML
     private TextField newUsernameField;
     @FXML

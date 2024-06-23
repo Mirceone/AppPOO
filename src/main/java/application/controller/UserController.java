@@ -14,11 +14,10 @@ import javax.persistence.Persistence;
 
 public class UserController {
 
-    @FXML
-    public ListView<User> userListView;
-
     private EntityManagerFactory entityManagerFactory;
     private UserService userService;
+    @FXML
+    public ListView<User> userListView;
 
     @FXML
     void initialize() {

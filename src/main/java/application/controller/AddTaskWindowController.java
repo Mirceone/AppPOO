@@ -50,6 +50,8 @@ public class AddTaskWindowController {
         // Initialize comboboxes and fields
         initializeComboBox();
         importanceComboBox.setItems(FXCollections.observableArrayList("High", "Medium", "Low"));
+
+        dueDatePicker.setEditable(false);
     }
 
     private void initializeComboBox() {
@@ -75,10 +77,6 @@ public class AddTaskWindowController {
             System.err.println("Session manager or current user is null.");
         }
     }
-
-
-
-
 
     @FXML
     private void handleAddTask() {

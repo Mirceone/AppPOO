@@ -14,8 +14,6 @@ import java.io.IOException;
 public class SceneController {
     private Stage stage;
     private Scene scene;
-
-    // Variables to store dimensions
     private double previousWidth;
     private double previousHeight;
 
