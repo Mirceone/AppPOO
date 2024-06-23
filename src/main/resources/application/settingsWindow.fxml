@@ -5,14 +5,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefWidth="500" prefHeight="400" spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SettingsWindowController">
+<VBox alignment="CENTER" prefWidth="500" prefHeight="400" spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SettingsWindowController" stylesheets="@styles/settingsWindow.css">
     <children>
-        <Label text="Settings" />
-        <Label text="Change Username:" />
-        <TextField fx:id="newUsernameField" maxWidth="300" promptText="Enter new username" />
-        <Button text="Change Username" onAction="#onChangeUsername"/>
-        <Label text="Delete Account:" />
-        <Button text="Delete Account" onAction="#onDeleteAccount"/>
-        <Label text=" " fx:id="errorMessage"/>
+        <Label text="Settings" styleClass="title-label" />
+        <Label text="Change Username:" styleClass="label" />
+        <TextField fx:id="newUsernameField" styleClass="text-field" maxWidth="300" promptText="Enter new username" />
+        <Button text="Change Username" styleClass="add-button" onAction="#onChangeUsername"/>
+        <Label text="Delete Account:" styleClass="label" />
+        <Button text="Delete Account" styleClass="add-button" onAction="#onDeleteAccount"/>
+        <Label text=" " fx:id="errorMessage" styleClass="error-label" />
     </children>
 </VBox>
